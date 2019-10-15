@@ -5,7 +5,7 @@
 
 
     ?>
- <body>
+ <body class="container">
      <?php
      include_once "./views/nav.php";
      include_once "./views/start.php";
