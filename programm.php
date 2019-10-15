@@ -240,3 +240,194 @@
     }
 
  ?>
+
+
+ <?php
+     echo "<hr /> <br />";
+     echo "<h3>If Else - mit Empty - besser!</h3> <br />";
+    $name = "Sven";
+    echo "Variable Name = {$name}";
+    if (!empty($name)) {
+            echo "<hr /> <br />";
+        echo "Variable enthält einen Namen oder String!";
+    }  else {
+            echo "<hr /> <br />";
+        echo "Variable ist leer!";
+    }
+
+?>
+
+<?php
+    echo "<hr /> <br />";
+    echo "<h3>If Else - Ifelse abfragen</h3> <br />";
+   $number = 42;
+   echo "Variable Name = {$number}";
+   if ($number > 20) {
+       echo "<hr /> <br />";
+       echo "Variable größer als 20!";
+   }  else if ($number > 42) {
+       echo "<hr /> <br />";
+       echo "Variable größer als 42!";
+   } else {
+       echo "<hr /> <br />";
+       echo "Variable is kleiner als 20";
+   }
+?>
+
+
+<!-- strtolower -->
+
+<?php
+
+echo "<hr /> <br />";
+echo "<h3>Strtolower - strtoupper</h3> <br />";
+    $stringA = strtolower("HALLO");
+
+    echo "To Lower {$stringA} <-> to Upper ". strtoupper($stringA);
+
+
+ ?>
+
+<!-- String Replace -->
+
+ <?php
+
+ echo "<hr /> <br />";
+ echo "<h3>str_replace</h3> <br />";
+     $stringB = "Sven HALLO";
+     echo $stringB;
+     echo str_replace("Sven", "Moritz", $stringB);
+
+
+  ?>
+
+
+<!-- String Position -->
+
+<?php
+    echo "<hr /> <br />";
+    echo "<h3>strpos</h3> <br />";
+    $stringB = "Sven HALLO";
+    echo $stringB . " <br />";
+    echo strpos($stringB, "HALLO"). ".ten Position";
+    // Liefert false wenn Begriff nicht gefunden.
+
+    $ergebnis = strpos($stringB, "S");
+    // Aufpassen bei Position 0 weil empty auch false ausgeben würde. Deswegen diese Variante
+    if($ergebnis !== false) {        // wenn du nur ein gleichheitszeichen benutzt kommt false raus
+        echo "<br />Begriff gefunden!";
+    } else {
+        echo "<br /> Nicht gefunden!";
+    }
+?>
+
+<!-- While Schleife -->
+
+
+<?php
+
+    echo "<hr /> <br />";
+    echo "<h3>While Schleife</h3> <br />";
+
+    $whileInt = 56;
+
+    while ($whileInt > 42 ) {
+        echo "{$whileInt} <br/>";
+
+        $whileInt--;
+        if($whileInt == 42) {
+            echo "<br /> Anzahl erreicht! Variable {$whileInt}";
+        }
+    }
+
+
+?>
+
+
+ <!-- For Schleife -->
+
+
+ <?php
+
+    echo "<hr /> <br />";
+    echo "<h3>For Schleife</h3> <br />";
+
+    $whileIntB = 56;
+
+
+    for($x = 50; $x <= 56; $x = $x += 4) {   // andere schreibweise für $x = $x + 4
+
+        echo "<br /> {$x}";
+
+    }
+
+    echo "<br /> x =  ". $whileIntB;
+
+
+?>
+
+
+<!-- Aufgabe - For Schleife -->
+
+
+<?php
+
+   echo "<hr /> <br />";
+   echo "<h3>Aufgabe - For Schleife</h3> <br />";
+
+   $end = 5;
+   $save = 0;
+   $start = 0;
+
+   for($x = $start; $x <= $end; $x++) {   // andere schreibweise für $x = $x + 4
+       $save += $x;
+   }
+
+   echo "<br /> Result - For Schleife =  ". $save;
+
+
+?>
+
+<!-- Aufgabe - While Schleife -->
+
+
+<?php
+
+   echo "<hr /> <br />";
+   echo "<h3>Aufgabe - While Schleife</h3> <br />";
+
+   $end = 5;
+   $save = 0;
+   $b = 0;
+
+   while($b <= $end) {   // andere schreibweise für $x = $x + 4
+       $save += $b;
+       $b++;
+   }
+
+   echo "<br /> Result - While Schleife =  ". $save;
+
+
+?>
+
+
+<!-- Break & Continue -->
+
+<?php
+
+   echo "<hr /> <br />";
+   echo "<h3>Break & Continue</h3> <br />";
+
+   for($x = 0; $x <= 100; $x++) {   // andere schreibweise für $x = $x + 4
+       if ($x != 13) {
+           var_dump($x);
+           continue;                // überspringt die aktuelle iteration, 13 wird hier übersprungen
+           break;                   // bricht eine schleife ab
+       }
+       var_dump($x);
+   }
+
+   echo "<br /> Result - Break Continue =  ". $save;
+
+
+?>
