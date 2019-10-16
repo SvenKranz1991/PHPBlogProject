@@ -7,12 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="start.php">Project name</a>
+      <a class="navbar-brand" href="index.php">Blog PHP Sven Kranz</a>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="start.php">Home</a></li>
-        <li><a href="about.php">About</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="posts.php">Posts</a></li>
+        <li><a href="sitemap.php">Sitemap</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

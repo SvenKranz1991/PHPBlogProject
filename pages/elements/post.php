@@ -10,7 +10,7 @@
     <p class="lead">Post - Beitrag Seite</p>
 
     <!-- Verbindung zur Datenbank -->
-    <?php $res = get_post($_GET['title']); ?>
+    <?php $res = get_post($_GET['id']); ?>
 
     <p class="paragraph">Dein wundervoller Text</p>
 
@@ -31,7 +31,8 @@
         <div class="panel-body">
             <p>
                 <?php
-                    echo $res["content"];
+                    // rechnet /n Zeichen in Zeilenumbrüche
+                    echo nl2br($res["content"]);
                  ?>
             </p>
         </div>
