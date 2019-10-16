@@ -8,8 +8,8 @@
  <body class="container">
      <?php
      include_once "elements/nav.php";
-     include_once "elements/start.php";
      include_once "elements/scripts.php";
+     include_once "elements/posts.php";
      ?>
 </body>
 </html>

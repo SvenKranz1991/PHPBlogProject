@@ -5,11 +5,11 @@
 
 <div class="container">
   <div class="starter-template">
-    <h1>Sitemap</h1>
-    <p class="lead">Sitemap Seite</p>
+    <h1>Posts</h1>
+    <p class="lead">Posts Seite</p>
 
     <!-- Verbindung zur Datenbank -->
-    <?php $res = $pdo ->query("SELECT * FROM `posts`"); ?>
+    <?php $res = fetch_posts(); ?>
 
 
     <!-- Pre-Tag Formatiert den Text so wie er kommt - Macht das ganze bisschen lesbarer -->
@@ -18,9 +18,11 @@
     <ul>
         <!-- Achtung PHP Alternativ Syntax -->
         <?php foreach ($res as $row): ?>
-            <h2>
+            <li>
+                <a href="post.php?title=<?php echo $row['title'];?>">
                 <?php echo $row['title']; ?>
-            </h2>
+                </a>
+            </li>
         <?php endforeach; ?>
     </ul>
 

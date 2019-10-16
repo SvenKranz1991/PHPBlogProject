@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php
-    include_once "./../views/head.php";
+    include_once "./elements/head.php";
     include_once "../database.php";
 
     ?>
  <body class="container">
      <?php
-     include_once "./../views/nav.php";
-     include_once "./../views/scripts.php";
-     include_once "./../views/sitemap.php";
+     include_once "./elements/nav.php";
+     include_once "./elements/scripts.php";
+     include_once "./elements/sitemap.php";
      ?>
 </body>
 </html>
