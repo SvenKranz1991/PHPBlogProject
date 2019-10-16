@@ -1,12 +1,12 @@
-<!-- Getting Blog Posts -->
+<!-- Getting Blog Posts - Übersicht SiteMap -->
 <br />
 <br />
 <br />
 
 <div class="container">
   <div class="starter-template">
-    <h1>Ueber uns</h1>
-    <p class="lead">Das hier ist der Text der Ueber uns Seite.</p>
+    <h1>Sitemap</h1>
+    <p class="lead">Sitemap Seite</p>
 
     <!-- Verbindung zur Datenbank -->
     <?php $res = $pdo ->query("SELECT * FROM `posts`"); ?>

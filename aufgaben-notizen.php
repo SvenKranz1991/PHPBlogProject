@@ -812,3 +812,154 @@ function summe($x) {
 echo "....". summe(100);
 
  ?>
+
+
+
+
+
+<!-- Klassen in PHP -->
+
+<?php
+echo "<hr /> <br />";
+echo "<h3>Klassen in PHP</h3> <br />";
+echo "<br />";
+echo "Example<br />";
+echo "<br /> Klassen(bsp: Auto) ist ein übergeordneter Object Type und besteht aus einer Instanz(was für ein Auto), Methoden, die auch Methoden sein könnten die nur zur Instanz gehören und aus Eogenschaften. <br />";
+
+class Auto {        // Klasse erstellen
+    public function __construct($typ = "Auto", $name = "Name")  {   // Konstruktor mit Referenzwert
+        $this->typ = $typ;
+        $this->name = $name;
+    }                       // Konstruktor
+    public $typ;        // Eigenschaft erstellen
+    public $name;
+
+    public function drive($location = "auf der Straße.") {
+        echo "<br /><p>Brumm Brumm {$this -> typ} {$this -> name} ...{$location}.</p><br />";       //Schreibweise mit This um auf Eigenschaften oder Methoden zuzugreifen. Javascript benutzt .
+    }     // Methode erstellen
+    private function nichtMitMirBro() {         // auf mich kann nicht von ausserhalb zugegriffen werden
+        echo "<br /><p>Nicht mit mir Bro</p><br />";
+    }
+}
+
+$maserati = new Auto();                    // Neuer Type
+$maserati -> typ = "Sportwagen";        // Gebe der Eigenschaft Typ der Instanz Maserati einen Wert;
+$maserati -> name = "Maserati";         // Eigenschaften können von ausserhalb überschrieben werden solange sie public sind - wenn sie Private sind kann man von ausserhalb nicht zugreifen
+$maserati -> drive();                   // Methode aufrufen
+
+$porsche = new Auto("Sportwagen", "Porsche Caymonn S - Komm in die Whatsapp Gruppe!"); // erstellen von neuer Instanz mit Konstruktor
+
+var_dump($maserati, $porsche);
+
+echo $porsche -> drive("in Mallorca");     // aufrufen der Methode der Instanz Porsche der Klasse Auto
+
+
+// .this gibts auch in php und verhält sich ähnlich zu react
+
+ ?>
+
+ <!-- Extends/Vererbung in PHP -->
+
+ <?php
+ echo "<hr /> <br />";
+ echo "<h3>Extends/Vererbung in PHP</h3> <br />";
+ echo "<br />";
+ echo "Example<br />";
+
+
+class SuperAuto extends Auto {
+    public function __construct($typ, $name, $schnelligkeit) {
+        parent::__construct($typ, $name);       // Konstruktor vom Parent ausführen und Variablen übergeben
+        $this -> schnelligkeit = $schnelligkeit;
+    }
+    public function drive($location = "auf dem Asphalt.") {
+        echo "<br /><p>Brumm Brumm {$this -> typ} {$this -> name} ...{$location}.</p><br />";       // überschreiben von Methoden von der Parent Klasse
+    }
+    public $schnelligkeit;
+}
+
+$tesla = new SuperAuto("Future Auto", "Tesla", "Millionen von PS", "Reis");
+
+var_dump($tesla);        // Ausgabe des SuperAuto
+echo $tesla -> drive();
+echo $tesla -> drive("in meinem Arsch");
+
+
+
+// public -- überall drauf zugreifen mit $this -> property
+// protected -- nicht von ausserhalb zugegriffen aber wird vererbt
+// private -- nicht von ausserhalb zugreifen und nicht vererbt
+
+// parent::methode/eigenschaft "Führe doch die Methode Eigenschaft im Parent aus"
+  ?>
+
+
+ <!-- Jede Klasse in eigene Datei -->
+
+ <?php
+ echo "<hr /> <br />";
+ echo "<h3>Jede Klasse in eigene Datei</h3> <br />";
+ echo "<br />";
+ echo "Example<br />";
+
+//require "src/Car.php";   siehe Autoload
+//require "src/SuperCar.php";
+function autoload($className) {
+    if (file_exists("./src/{$className}.php")){
+        require "./src/{$className}.php";
+    }
+}
+spl_autoload_register("autoload");
+
+$Opel = new Car("Familienauto", "Corsa");
+echo "Mein neues Car - {$Opel -> typ}, {$Opel -> name}. <br />";
+
+$Ferrari = new SuperCar("RennWagen", "IrgendeinName", "1000ps");
+echo "Ich habe ein besseres Car - {$Ferrari -> typ}, {$Ferrari -> name}. {$Ferrari -> schnelligkeit}<br />";
+
+
+
+
+
+  ?>
+
+ <!-- Autoload in PHP -->
+
+ <?php
+ echo "<hr /> <br />";
+ echo "<h3>Autoload in PHP</h3> <br />";
+ echo "<br />";
+ echo "Example<br />";
+ echo "Durch Autoload muss man klassen nicht mehr requiren sondern definiert einen autoload.<br />";
+
+ // function autoload($className) {
+ //     if (file_exists("./src/{$className}.php")){
+ //         require "./src/{$className}.php";
+ //     }
+ // }
+ // spl_autoload_register("autoload");
+
+
+
+  ?>
+
+ <!-- Typisierte Funktionen, Interfaces -->
+
+ <?php
+ echo "<hr /> <br />";
+ echo "<h3>Typisierte Funktionen, Interfaces</h3> <br />";
+ echo "<br />";
+ echo "Example<br />";
+
+ echo "Indem man Interfaces in Klassen implementiert kann sichergestellt werden, dass Funktionen auch alle auf bestimmte Methoden zugriff haben. Für Beispiele schaue in Klassen Beispielen."
+
+// function tanken(DriveInterface $obj) {
+//     return $obj -> tanken(4);
+// }
+
+// gucks dir irgedwann nochmal an.
+
+// $vw = new SuperCar("Rennwagen", "IrgendNamen", "100ps");
+// var_dump(tanken($vw));
+
+?>
